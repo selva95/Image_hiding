@@ -1,5 +1,3 @@
 # Image_hiding
-Project
-hi baadu
-sollunga piths
-prppprp
+*****Project Mates*****
+Hi team mates.. 
