@@ -1,0 +1,37 @@
+Hiding image
+
+cover=imread('D:\Images\falls.jpg');
+msg=imread('D:\Images\autumn.jpg');
+%Get the R component
+cover1=cover(:,:,1);
+%set least 3bit zeros
+cover1=bitand(cover1,248);
+%let secret image bytes shift right by 5 bits
+msg1=msg(:,:,1);
+shiftmsg3=bitshift(msg1,-5);
+%hiding
+cover1 =bitor(cover1,shiftmsg3);
+%Get the G component
+cover2=cover(:,:,2);
+%set least 3bit zeros
+cover2=bitand(cover2,248);
+%let secret image bytes shift right by 5 bits
+msg2=msg(:,:,2);
+shiftmsg3=bitshift(msg2,-5);
+%hiding
+cover2=bitor(cover2,shiftmsg3);
+%Get the B component
+cover3=cover(:,:,3);
+%set least 3bit zeros
+cover3=bitand(cover3,248);
+%let secret image bytes shift right by 5 bits
+msg3=msg(:,:,3);
+shiftmsg3=bitshift(msg3,-5);
+%hiding
+cover3=bitor(cover3,shiftmsg3);
+%save
+stego=cover;
+cover(:,:,1)=cover1;
+cover(:,:,2)=cover2;
+cover(:,:,3)=cover3;
+imwrite(cover, 'D:\color\stego.bmp');
